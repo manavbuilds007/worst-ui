@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-holo-cyan: #00f7ff;
+    --color-holo-pink: #ff007f;
+    --color-holo-purple: #b026ff;
+  }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background-color: #030305;
+    color: #e2e8f0;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'Fira Code', monospace;
+  }
+
+  .font-retro {
+    font-family: 'VT323', monospace;
+  }
+}
+
+/* Scanlines Effect for Hologram & Chaos elements */
+.scanlines {
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0) 50%,
+    rgba(0, 0, 0, 0.45) 50%,
+    rgba(0, 0, 0, 0.45)
+  );
+  background-size: 100% 4px;
+}
+
+/* Subtle holographic CRT distortion */
+.crt-screen {
+  box-shadow: inset 0 0 20px rgba(0, 247, 255, 0.25), 0 0 15px rgba(176, 38, 255, 0.2);
+}
+
+/* Text glow utilities */
+.glow-cyan {
+  text-shadow: 0 0 8px rgba(0, 247, 255, 0.75), 0 0 16px rgba(0, 247, 255, 0.4);
+}
+
+.glow-pink {
+  text-shadow: 0 0 8px rgba(255, 0, 127, 0.75), 0 0 16px rgba(255, 0, 127, 0.4);
+}
+
+.glow-purple {
+  text-shadow: 0 0 8px rgba(176, 38, 255, 0.75), 0 0 16px rgba(176, 38, 255, 0.4);
+}
+
+/* Reduced motion accessibility support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Noise overlay generator using data URI */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.045'/%3E%3C/svg%3E");
+}

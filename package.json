@@ -1,0 +1,16 @@
+{
+  "name": "worst-ui-for-any-web-browser",
+  "version": "1.0.0",
+  "description": "Worst UI for Any Web Browser - Intentionally dysfunctional, comedic, and chaotic anti-UX web application",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"cyan,magenta\" \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "build": "cd server && npm run build && cd ../client && npm run build",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
